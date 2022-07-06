@@ -9,6 +9,8 @@ from rest_framework.settings import api_settings
 #from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAuthenticated
 
+from django.shortcuts import render
+
 from profiles_api import serializers
 from profiles_api import models
 from profiles_api import permissions
@@ -27,6 +29,7 @@ class HelloApiView(APIView):
         ]
 
         return Response({'message': 'Hello!', 'an_apiview': an_apiview})
+        #return render(request,'index.html', {'an_apiview': an_apiview})
 
     def post(self, request):
         """Create a hello message with our name"""
